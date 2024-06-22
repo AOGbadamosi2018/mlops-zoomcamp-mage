@@ -17,9 +17,9 @@ def load_data_from_api(**kwargs) -> DataFrame:
     #url = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv?raw=True'
     url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-03.parquet'
 
-    return pd.read_parquet(url)
+    df = pd.read_parquet(url)
 
-print(pd.read_parquet('https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-03.parquet').shape[0])
+    return df
 
 @test
 def test_output(df) -> None:

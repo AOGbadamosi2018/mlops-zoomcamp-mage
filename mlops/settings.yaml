@@ -1,5 +1,9 @@
 projects:
+  billowing_druid: {}
+  homework_03:
+    path: homework_03
   unit_0_setup: {}
-  unit_1_data_preparation: {}
+  unit_1_data_preparation:
+    path: unit_1_data_preparation
   unit_2_training: {}
   unit_3_observability: {}

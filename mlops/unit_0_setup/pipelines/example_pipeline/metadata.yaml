@@ -4,6 +4,9 @@ blocks:
   configuration: {}
   downstream_blocks:
   - fill_in_missing_values
+  - missing_values_for_load_titanic
+  - load_titanic_time_series_bar_chart_m1
+  - unique_values_for_load_titanic
   executor_config: null
   executor_type: local_python
   has_callback: null
@@ -32,7 +35,7 @@ blocks:
   upstream_blocks:
   - load_titanic
   uuid: fill_in_missing_values
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -70,5 +73,66 @@ spark_config: {}
 tags: []
 type: python
 uuid: example_pipeline
-variables_dir: /root/.mage_data/unit_0_setup
-widgets: []
+variables_dir: /home/src/mage_data/unit_0_setup
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: histogram
+    width_percentage: '1'
+    x: columns_with_mising_values
+    y: percentage_of_missing_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: missing values for load_titanic
+  retry_config: null
+  status: failed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_titanic
+  uuid: missing_values_for_load_titanic
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: time series bar chart
+    time_interval: original
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_titanic_time series bar chart_m1
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_titanic
+  uuid: load_titanic_time_series_bar_chart_m1
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns
+    y: number_of_unique_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: unique values for load_titanic
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_titanic
+  uuid: unique_values_for_load_titanic
