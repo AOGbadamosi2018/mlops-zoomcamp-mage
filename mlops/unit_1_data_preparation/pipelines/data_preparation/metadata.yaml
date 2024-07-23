@@ -4,18 +4,37 @@ blocks:
   configuration:
     file_source:
       path: unit_1_data_preparation/data_loaders/ingest.py
-  downstream_blocks: []
+  downstream_blocks:
+  - prepare
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: ingest
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/transformers/prepare.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Prepare
+  retry_config: null
+  status: failed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - ingest
+  uuid: prepare
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -39,5 +58,9 @@ spark_config: {}
 tags: []
 type: python
 uuid: data_preparation
+variables:
+  split_on_feature: lpep_pickup_datetime
+  split_on_feature_value: '2024-02-01'
+  target: duration
 variables_dir: /home/src/mage_data/unit_1_data_preparation
 widgets: []
