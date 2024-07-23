@@ -64,7 +64,8 @@ blocks:
   configuration:
     file_source:
       path: unit_2_training/transformers/hyperparameter_tuning.py
-  downstream_blocks: []
+  downstream_blocks:
+  - sklearn
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -78,6 +79,24 @@ blocks:
   - training_set
   - load_models
   uuid: hyperparameter_tuning
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/data_exporters/sklearn.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: sklearn
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - hyperparameter_tuning
+  uuid: sklearn
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
