@@ -56,5 +56,5 @@ def test_output(df , df_train , df_val, *args) -> None:
     Template code for testing the output of the block.
     """
     assert df is not None ,'The original dataframe is not undefined'
-    assert df_train is not None,
+    assert df_train is not None
     assert df_val is not None
