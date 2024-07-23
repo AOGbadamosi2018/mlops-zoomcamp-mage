@@ -6,6 +6,9 @@ blocks:
       path: unit_1_data_preparation/data_loaders/ingest.py
   downstream_blocks:
   - prepare
+  - ingest_bar_chart_u7
+  - missing_values_for_ingest
+  - unique_values_for_ingest
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -82,4 +85,72 @@ variables:
   split_on_feature_value: '2024-02-01'
   target: duration
 variables_dir: /home/src/mage_data/unit_1_data_preparation
-widgets: []
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: vertical
+    chart_type: time series bar chart
+    group_by:
+    - lpep_pickup_datetime
+    metrics:
+    - aggregation: count
+      column: lpep_pickup_datetime
+    time_interval: original
+    x: x
+    y: y
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_bar chart_u7
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_bar_chart_u7
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns_with_mising_values
+    y: percentage_of_missing_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: missing values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: missing_values_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns
+    y: number_of_unique_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: unique values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: unique_values_for_ingest
