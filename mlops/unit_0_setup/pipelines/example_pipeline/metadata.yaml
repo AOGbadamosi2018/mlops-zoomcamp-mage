@@ -35,7 +35,7 @@ blocks:
   upstream_blocks:
   - load_titanic
   uuid: fill_in_missing_values
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
