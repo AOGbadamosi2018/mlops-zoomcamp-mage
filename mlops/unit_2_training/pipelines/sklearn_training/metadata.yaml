@@ -7,11 +7,11 @@ blocks:
     global_data_product:
       settings:
         build:
-          partitions: 0
+          partitions: 1
       uuid: training_set
   downstream_blocks:
-  - hyperparameter_tuning
   - training_set_bar_chart_p0
+  - hyperparameter_tuning
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -71,12 +71,12 @@ blocks:
   language: python
   name: Hyperparameter tuning
   retry_config: null
-  status: failed
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
-  - load_models
   - training_set
+  - load_models
   uuid: hyperparameter_tuning
 cache_block_output_in_memory: false
 callbacks: []
@@ -125,6 +125,5 @@ widgets:
   status: failed
   timeout: null
   type: chart
-  upstream_blocks:
-  - training_set
+  upstream_blocks: []
   uuid: training_set_bar_chart_p0
