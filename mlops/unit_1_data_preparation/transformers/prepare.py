@@ -1,9 +1,12 @@
 from typing import Tuple
 import pandas as pd
+import time
 
+from mlops.utils.data_preparation.feature_selector import select_features
 from mlops.utils.data_preparation.cleaning import clean
+
 from mlops.utils.data_preparation.feature_engineering import combine_features
-from mlops.utils.data_preparation.feature_engineering import select_features
+
 from mlops.utils.data_preparation.splitters import split_on_value
 
 
@@ -37,21 +40,21 @@ def transform(df:pd.DataFrame, **kwargs) -> Tuple[pd.DataFrame, pd.DataFrame, pd
     df = combine_features(df)
     df = select_features(df,features=[split_on_feature, target])
 
-    df_train, df_vl = split_on_value(df,
+    df_train, df_val = split_on_value(df,
     split_on_feature,
     split_on_feature_value)    
     # the logic here is to split the features into train and test set 
     
 
 
-    return df , df_train , df_test
+    return df , df_train , df_val
 
 
 @test
-def test_output(output, *args) -> None:
+def test_output(df , df_train , df_val, *args) -> None:
     """
     Template code for testing the output of the block.
     """
     assert df is not None ,'The original dataframe is not undefined'
-    assert df_train is not None 
-    assert df_test is not None
+    assert df_train is not None,
+    assert df_val is not None
