@@ -52,5 +52,37 @@ Output (optional):
 
     return X, X_train, X_val, y , y_train, y_val , dv
 
+#testing the comppleteness of the test dataset
+@test
+def test_dataset( X: csr_matrix,X_train: csr_matrix,X_val: csr_matrix, y: Series,y_train: Series,y_val : Series, *args,) -> None:
+    assert(
+        X.shape[0]==105870), f'Entire dataset should have 105870 examples, but has {X.shape[0]}'
+    assert(
+        X.shape[1]==7027), f'Entire dataset should have 7027 examples, but has {X.shape[1]}'
+    assert(
+        len(y.index)==X.shape[0]), f'Entire dataset should have {X.shape[0]} examples, but has {len(y.index)}'
+    
 
 
+
+#testing the completeness of the test dataset
+@test
+def testing_validation_dataset( X: csr_matrix,X_train: csr_matrix,X_val: csr_matrix, y: Series,y_train: Series,y_val : Series, *args,) -> None:
+    assert(
+        X_val.shape[0]==51492), f'Entire dataset should have 105870 examples, but has {X_val.shape[0]}'
+    assert(
+        X_val.shape[1]==5094), f'Entire dataset should have 7027 examples, but has {X_val.shape[1]}'
+    assert(
+        len(y_val)==X_val.shape[0]), f'Entire dataset should have {X_val.shape[0]} examples, but has {len(y_val.index)}'    
+
+
+
+#testing the completeness of the train dataset
+@test
+def testing_training_dataset( X: csr_matrix,X_train: csr_matrix,X_val: csr_matrix, y: Series,y_train: Series,y_val : Series, *args,) -> None:
+    assert(
+        X_train.shape[0]==54378), f'Entire dataset should have 105870 examples, but has {X_train.shape[0]}'
+    assert(
+        X_train.shape[1]==5094), f'Entire dataset should have 7027 examples, but has {X_train.shape[1]}'
+    assert(
+        len(y_train.index)==X_train.shape[0]), f'Entire dataset should have {X_train.shape[0]} examples, but has {len(y_train.index)}'  
