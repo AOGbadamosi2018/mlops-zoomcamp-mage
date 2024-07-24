@@ -16,7 +16,7 @@ if 'test' not in globals():
 
 
 @transformer
-def hyperparameter_tuning(training_set: Dict[str, Union[Series, csr_matrix]],  **kwargs,) _> Tuple[Dict[str, Union[bool, float , int, str]], csr_matrix, Series,]:
+def hyperparameter_tuning(training_set: Dict[str, Union[Series, csr_matrix]],  **kwargs,) -> Tuple[Dict[str, Union[bool, float , int, str]], csr_matrix, Series,]:
     
     """
     Trains xgboost model and includes experiment tracking

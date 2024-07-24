@@ -100,48 +100,48 @@ def track_experiment(
     dataset_inputs = []
 
     # This increases memory too much.
-    if track_datasets:
-        for dataset_name, dataset, tags in [
-            ('dataset', training_set, dict(context='training')),
-            (
-                'targets',
-                training_targets.to_numpy() if training_targets is not None else None,
-                dict(context='training'),
-            ),
-            ('dataset', validation_set, dict(context='validation')),
-            (
-                'targets',
-                validation_targets.to_numpy() if validation_targets is not None else None,
-                dict(context='validation'),
-            ),
-            ('predictions', predictions, dict(context='training')),
-        ]:
-            if dataset is None:
-                continue
+    # if track_datasets:
+    #     for dataset_name, dataset, tags in [
+    #         ('dataset', training_set, dict(context='training')),
+    #         (
+    #             'targets',
+    #             training_targets.to_numpy() if training_targets is not None else None,
+    #             dict(context='training'),
+    #         ),
+    #         ('dataset', validation_set, dict(context='validation')),
+    #         (
+    #             'targets',
+    #             validation_targets.to_numpy() if validation_targets is not None else None,
+    #             dict(context='validation'),
+    #         ),
+    #         ('predictions', predictions, dict(context='training')),
+    #     ]:
+    #         if dataset is None:
+    #             continue
 
-            dataset_from = None
-            if isinstance(dataset, pd.DataFrame):
-                dataset_from = from_pandas
-            elif isinstance(dataset, np.ndarray):
-                dataset_from = from_numpy
+    #         dataset_from = None
+    #         if isinstance(dataset, pd.DataFrame):
+    #             dataset_from = from_pandas
+    #         elif isinstance(dataset, np.ndarray):
+    #             dataset_from = from_numpy
 
-            if dataset_from:
-                ds = dataset_from(dataset, name=dataset_name)._to_mlflow_entity()
-                ds_input = DatasetInput(ds, tags=[InputTag(k, v) for k, v in tags.items()])
-                dataset_inputs.append(ds_input)
+    #         if dataset_from:
+    #             ds = dataset_from(dataset, name=dataset_name)._to_mlflow_entity()
+    #             ds_input = DatasetInput(ds, tags=[InputTag(k, v) for k, v in tags.items()])
+    #             dataset_inputs.append(ds_input)
 
-            if verbosity:
-                context = tags['context']
-                if dataset_from:
-                    print(f'Logged input for {context} {dataset_name}.')
-                else:
-                    print(
-                        f'Unable to log input for {context} {dataset_name}, '
-                        f'{type(dataset)} not registered.'
-                    )
+    #         if verbosity:
+    #             context = tags['context']
+    #             if dataset_from:
+    #                 print(f'Logged input for {context} {dataset_name}.')
+    #             else:
+    #                 print(
+    #                     f'Unable to log input for {context} {dataset_name}, '
+    #                     f'{type(dataset)} not registered.'
+    #                 )
 
-        if len(dataset_inputs) >= 1:
-            client.log_inputs(run_id, dataset_inputs)
+    #     if len(dataset_inputs) >= 1:
+    #         client.log_inputs(run_id, dataset_inputs)
 
     if model:
         log_model = None

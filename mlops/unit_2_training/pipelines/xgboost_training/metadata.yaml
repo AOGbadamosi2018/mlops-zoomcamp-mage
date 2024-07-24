@@ -19,7 +19,7 @@ blocks:
   type: global_data_product
   upstream_blocks: []
   uuid: training_set
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
@@ -31,7 +31,7 @@ blocks:
   language: python
   name: Hyperparameter tuning xgboost
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
@@ -62,5 +62,8 @@ tags:
 - decision tree
 type: python
 uuid: xgboost_training
+variables:
+  early_stopping_rounds: 10
+  max_evaluations: 10
 variables_dir: /home/src/mage_data/unit_2_training
 widgets: []
