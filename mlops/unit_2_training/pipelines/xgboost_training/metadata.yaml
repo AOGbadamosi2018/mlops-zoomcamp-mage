@@ -1,0 +1,66 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/global_data_products/training_set.py
+    global_data_product:
+      uuid: training_set
+  downstream_blocks:
+  - hyperparameter_tuning_xgboost
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Training set
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: training_set
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/transformers/hyperparameter_tuning_xgboost.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Hyperparameter tuning xgboost
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - training_set
+  uuid: hyperparameter_tuning_xgboost
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-07-24 05:03:22.984340+00:00'
+data_integration: null
+description: 'XGBoost is a scalable and efficient implementation of gradient boosted
+  decision trees, a powerful ensemble machine learning technique. '
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Xgboost training
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- xgboost
+- decision tree
+type: python
+uuid: xgboost_training
+variables_dir: /home/src/mage_data/unit_2_training
+widgets: []
