@@ -7,7 +7,8 @@ from xgboost import Booster
 
 
 from mlops.utils.models.xgboost import build_data, fit_model
-from mlops.utils.models.xgboost import build_data, fit_model
+
+
 
 if 'data_exporter' not in globals():
     from mage_ai.data_preparation.decorators import data_exporter
