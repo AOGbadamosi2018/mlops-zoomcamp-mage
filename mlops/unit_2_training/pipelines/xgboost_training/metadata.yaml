@@ -14,7 +14,7 @@ blocks:
   language: python
   name: Training set
   retry_config: null
-  status: not_executed
+  status: executed
   timeout: null
   type: global_data_product
   upstream_blocks: []
