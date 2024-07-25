@@ -16,9 +16,17 @@ if 'data_exporter' not in globals():
 
 
 @data_exporter
-def train(training_set: Dict[str, Union[Series, csr_matrix]],settings:Tuple[Dict[str, Union[bool, float, int , str]],csr_matrix,Series,],**kwargs,) -> Tuple[Booster, csr_matrix , Series]:
-    hyperparameters = X,y, settings
-    hyperparameters['max_depth'] = int(kwargs.get('max_depth'))
+def train(
+    training_set: Dict[str, Union[Series, csr_matrix]],
+    settings:Tuple[
+        Dict[str, Union[bool, float, int , str]],
+        csr_matrix,
+        Series,
+    ],
+    **kwargs,
+) -> Tuple[Booster, csr_matrix , Series]:
+    hyperparameters , X,y = settings
+    
 
     #Test training a model with low max depth 
     #so that the output renders a reasonably sized plot tree. 
