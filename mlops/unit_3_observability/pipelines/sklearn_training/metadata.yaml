@@ -22,7 +22,7 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: unit_2_training/markdowns/dynamic_block_info.md
+      path: unit_3_observability/markdowns/dynamic_block_info.md
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -40,7 +40,7 @@ blocks:
   configuration:
     dynamic: true
     file_source:
-      path: unit_2_training/custom/load_models.py
+      path: unit_3_observability/custom/load_models.py
   downstream_blocks:
   - hyperparameter_tuning/sklearn
   executor_config: null
@@ -58,7 +58,7 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: unit_2_training/transformers/hyperparameter_tuning/sklearn.py
+      path: unit_3_observability/transformers/hyperparameter_tuning/sklearn.py
   downstream_blocks:
   - sklearn
   executor_config: null
@@ -78,7 +78,7 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: unit_2_training/data_exporters/sklearn.py
+      path: unit_3_observability/data_exporters/sklearn.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -119,5 +119,5 @@ uuid: sklearn_training
 variables:
   max_evaluations: 1
   random_state: 7
-variables_dir: /root/.mage_data/unit_3_observability
+variables_dir: /home/src/mage_data/unit_3_observability
 widgets: []
