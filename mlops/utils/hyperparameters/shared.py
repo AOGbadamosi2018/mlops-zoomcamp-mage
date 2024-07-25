@@ -44,8 +44,8 @@ def build_hyperparameters_space(
         params = dict(
             max_depth=scope.int(hp.quniform('max_depth', 5, 45, 5)),
             min_samples_leaf=scope.int(hp.quniform('min_samples_leaf', 1, 10, 1)),
-            min_samples_split=scope.int(hp.quniform('min_samples_split', 2, 20, 1)),
-            n_estimators=scope.int(hp.quniform('n_estimators', 10, 60, 10)),
+            min_samples_split=scope.float(hp.quniform('min_samples_split', 0.2, 0.8, 0.2)),
+#            n_estimators=scope.int(hp.quniform('n_estimators', 10, 60, 10)),
             random_state=random_state,
         )
 
@@ -54,8 +54,8 @@ def build_hyperparameters_space(
             learning_rate=hp.loguniform('learning_rate', -5, 0),  # Between e^-5 and e^0
             max_depth=scope.int(hp.quniform('max_depth', 5, 40, 1)),
             min_samples_leaf=scope.int(hp.quniform('min_samples_leaf', 1, 10, 1)),
-            min_samples_split=scope.int(hp.quniform('min_samples_split', 2, 20, 1)),
-            n_estimators=scope.int(hp.quniform('n_estimators', 10, 50, 10)),
+#            min_samples_split=scope.int(hp.quniform('min_samples_split', 2, 20, 1)),
+#            n_estimators=scope.int(hp.quniform('n_estimators', 10, 50, 10)),
             random_state=random_state,
         )
 
@@ -63,8 +63,8 @@ def build_hyperparameters_space(
         params = dict(
             max_depth=scope.int(hp.quniform('max_depth', 5, 30, 5)),
             min_samples_leaf=scope.int(hp.quniform('min_samples_leaf', 1, 10, 1)),
-            min_samples_split=scope.int(hp.quniform('min_samples_split', 2, 20, 2)),
-            n_estimators=scope.int(hp.quniform('n_estimators', 10, 40, 10)),
+            min_samples_split=scope.float(hp.quniform('min_samples_split', 0.2, 0.8, 0.2)),
+ #           n_estimators=scope.int(hp.quniform('n_estimators', 10, 40, 10)),
             random_state=random_state,
         )
 
