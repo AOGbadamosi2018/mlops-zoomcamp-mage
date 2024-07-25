@@ -19,13 +19,16 @@ blocks:
     uuid: distribution_of_performance_metrics
   runs_by_model__pie_chart_:
     configuration:
+      buckets: ''
       chart_type: pie chart
       group_by:
       - model
     data_source:
+      refresh_interval: '60000'
       type: chart_code
     error: null
     name: Runs by model (Pie chart)
+    name_new: Runs by model (Pie chart)
     skip_render: false
     type: chart
     uuid: runs_by_model__pie_chart_

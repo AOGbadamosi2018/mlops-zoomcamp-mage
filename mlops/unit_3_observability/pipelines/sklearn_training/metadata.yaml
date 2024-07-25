@@ -74,7 +74,7 @@ blocks:
   - training_set
   - load_models
   uuid: hyperparameter_tuning/sklearn
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     file_source:
@@ -86,7 +86,7 @@ blocks:
   language: python
   name: sklearn
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -117,7 +117,7 @@ tags:
 type: python
 uuid: sklearn_training
 variables:
-  max_evaluations: 1
+  max_evaluations: 2
   random_state: 7
 variables_dir: /home/src/mage_data/unit_3_observability
 widgets: []

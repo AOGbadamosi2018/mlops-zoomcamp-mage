@@ -16,7 +16,7 @@ def models(*args, **kwargs) -> Tuple[List[str], List[Dict[str, str]]]:
         ensemble.RandomForestRegressor
     """
     model_names: str = kwargs.get(
-        'models', 'linear_model.LinearRegression,linear_model.Lasso,svm.LinearSVR'
+        'models', 'linear_model.LinearRegression,linear_model.Lasso,svm.LinearSVR,ensemble.ExtraTreesRegressor,ensemble.GradientBoostingRegressor,ensemble.RandomForestRegressor'
     )
     child_data: List[str] = [
         model_name.strip() for model_name in model_names.split(',')
