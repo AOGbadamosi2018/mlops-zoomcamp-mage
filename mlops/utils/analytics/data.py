@@ -5,6 +5,8 @@ import sqlite3
 
 from mlops.utils.logging import DEFAULT_TRACKING_URI
 
+#Gets the query logged to the sqlite database
+
 
 QUERY = """
 SELECT

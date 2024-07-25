@@ -72,22 +72,18 @@ blocks:
     configuration:
       chart_type: time series line chart
       design:
-        x_grid_lines_hidden: true
-        y_grid_lines_hidden: true
+        x_grid_lines_hidden: false
+        y_grid_lines_hidden: false
         y_values_smooth: true
       group_by:
       - start_time
       metrics:
       - aggregation: average
-        column: rmse_Booster
-      - aggregation: average
-        column: rmse_LinearRegression
-      - aggregation: average
-        column: rmse_Lasso
-      time_interval: minute
+        column: rmse
+      time_interval: second
       x_axis_label_format: h:mm
       x_grid_lines_hidden: true
-      y_axis_label_format: return parseFloat(value).toFixed(3)
+      y_axis_label_format: return parseFloat(value).toFixed(2)
       y_grid_lines_hidden: true
       y_values_smooth: true
     data_source:
@@ -100,7 +96,7 @@ blocks:
     uuid: training_metrics__rmse_
 layout:
 - - block_uuid: training_metrics__rmse_
-    height: 400
+    height: 200
     max_width_percentage: 50
     width: 2
   - block_uuid: time_series__mse_
