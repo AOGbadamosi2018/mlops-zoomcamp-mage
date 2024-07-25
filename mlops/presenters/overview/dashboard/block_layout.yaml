@@ -13,6 +13,7 @@ blocks:
       type: chart_code
     error: null
     name: Distribution of performance metrics
+    name_new: Distribution of performance metrics
     skip_render: false
     type: chart
     uuid: distribution_of_performance_metrics
@@ -35,11 +36,9 @@ blocks:
       - start_time
       metrics:
       - aggregation: average
+        column: mse
+      - aggregation: average
         column: mse_Booster
-      - aggregation: average
-        column: mse_LinearRegression
-      - aggregation: average
-        column: mse_Lasso
       time_interval: hour
       x_axis_label_format: hh
     data_source:
@@ -65,6 +64,7 @@ blocks:
       type: chart_code
     error: null
     name: Total runs by model
+    name_new: Total runs by model
     skip_render: false
     type: chart
     uuid: total_runs_by_model
@@ -95,17 +95,21 @@ blocks:
     type: chart
     uuid: training_metrics__rmse_
 layout:
-- - block_uuid: training_metrics__rmse_
+- - block_uuid: runs_by_model__pie_chart_
     height: 200
     max_width_percentage: 50
-    width: 2
-  - block_uuid: time_series__mse_
-    height: 400
-    width: 2
-- - block_uuid: total_runs_by_model
     width: 1
-  - block_uuid: distribution_of_performance_metrics
+  - block_uuid: training_metrics__rmse_
+    height: 200
+    max_width_percentage: 50
+    width: 1
+  - block_uuid: total_runs_by_model
+    height: 200
+    width: 1
+- - block_uuid: distribution_of_performance_metrics
+    height: 200
     max_width_percentage: 0
     width: 2
-  - block_uuid: runs_by_model__pie_chart_
-    width: 1
+  - block_uuid: time_series__mse_
+    height: 200
+    width: 2
