@@ -8,7 +8,26 @@ notification_config:
   email_config:
     smtp_host: smtp.gmail.com
     smtp_user: "{{ env_var('SMTP_EMAIL') }}"
-    smtp_password: "{{ env_var('SMTP_PASSWORD') }}"
+    smtp_password: "{{ env_var('SMTP_PASSWORD') }}" #cavv crlm arjq zluv
     smtp_mail_from: "{{ env_var('SMTP_EMAIL') }}"
     to_emails:
       - "{{ env_var('SMTP_EMAIL') }}"
+  message_templates:
+  failure:
+    title: Failed to execute pipeline {pipeline_uuid} at {execution_time}
+    details: >
+      Failed to execute pipeline {pipeline_run_url}.
+      Pipeline uuid: {pipeline_uuid}. Trigger name: {pipeline_schedule_name}.
+      Sent from mage AI,
+  success:
+    title: Failed to execute pipeline {pipeline_uuid} at {execution_time}
+    details: >
+      Successfully executed pipeline {pipeline_run_url}.
+      Pipeline uuid: {pipeline_uuid}. Trigger name: {pipeline_schedule_name}.
+      Sent from mage AI.
+  passed_sla:
+    title: Passed_sla notification for pipeline {pipeline_uuid} at {execution_time}
+    details: >
+      sla passed for pipeline {pipeline_run_url}.
+      Pipeline uuid: {pipeline_uuid}. Trigger name: {pipeline_schedule_name}.
+      Sent from mage AI.
