@@ -1,0 +1,45 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/global_data_products/prosperous_paper.py
+    global_data_product:
+      uuid: generic_loader
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: prosperous paper
+  retry_config: null
+  status: executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: prosperous_paper
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-07-29 19:12:59.001509+00:00'
+data_integration: null
+description: Testing the creation of a new GDP
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: exciting ring
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- homework_03
+type: python
+uuid: exciting_ring
+variables_dir: /home/src/mage_data/homework_03
+widgets: []

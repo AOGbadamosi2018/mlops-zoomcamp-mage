@@ -7,12 +7,3 @@ training_set:
   repo_path: /home/src/mlops/unit_1_data_preparation
   settings:
     build: {}
-training_set_global:
-  object_type: pipeline
-  object_uuid: data_preparation
-  outdated_after:
-    seconds: 700
-  project: unit_1_data_preparation
-  repo_path: /home/src/mlops/unit_1_data_preparation
-  settings:
-    build: {}
