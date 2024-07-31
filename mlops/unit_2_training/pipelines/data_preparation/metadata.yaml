@@ -36,7 +36,7 @@ blocks:
   upstream_blocks:
   - ingest
   uuid: prepare
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
@@ -80,7 +80,7 @@ type: python
 uuid: data_preparation
 variables:
   split_on_feature: lpep_pickup_datetime
-  split_on_feature_value: '2024_02_01'
+  split_on_feature_value: '2024-02-01'
   target: duration
 variables_dir: /home/src/mage_data/unit_2_training
 widgets: []
