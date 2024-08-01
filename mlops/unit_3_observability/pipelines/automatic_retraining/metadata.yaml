@@ -30,7 +30,7 @@ blocks:
   language: python
   name: retrain/XGBoost
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
@@ -48,7 +48,7 @@ blocks:
   language: python
   name: retrain/sklearn
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
@@ -78,5 +78,5 @@ tags:
 - retraining
 type: python
 uuid: automatic_retraining
-variables_dir: /root/.mage_data/unit_3_observability
+variables_dir: /home/src/mage_data/unit_3_observability
 widgets: []

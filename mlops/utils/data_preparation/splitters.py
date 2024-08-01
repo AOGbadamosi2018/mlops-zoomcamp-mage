@@ -1,6 +1,7 @@
 from typing import List, Tuple, Union
 
 from pandas import DataFrame, Index
+from datetime import datetime
 
 
 def split_on_value(
@@ -10,8 +11,8 @@ def split_on_value(
     drop_feature: bool = True,
     return_indexes: bool = False,
 ) -> Union[Tuple[DataFrame, DataFrame], Tuple[Index, Index]]:
-    df_train = df[df[feature] < value]
-    df_val = df[df[feature] >= value]
+    df_train = df[df[feature] < datetime.strptime(value,'%Y-%m-%d')]
+    df_val = df[df[feature] >= datetime.strptime(value, '%Y-%m-%d')]
 
     if return_indexes:
         return df_train.index, df_val.index

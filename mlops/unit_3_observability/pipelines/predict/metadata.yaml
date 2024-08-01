@@ -77,5 +77,5 @@ tags:
 - inference
 type: python
 uuid: predict
-variables_dir: /root/.mage_data/unit_3_observability
+variables_dir: /home/src/mage_data/unit_3_observability
 widgets: []
